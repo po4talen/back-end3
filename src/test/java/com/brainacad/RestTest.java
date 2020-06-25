@@ -18,13 +18,13 @@ public class RestTest{
 
         //TODO: Избавится он хедеров в тесте добавив методы с хедерами по умолчанию в класс HttpClientHelper
         //Создаём переменую headers типа Map
-        Map<String, String> headers=new HashMap<>();
+        //Map<String, String> headers=new HashMap<>();
         //Добавляем в headers наш заголовок
-        headers.put("Content-Type", "application/json");
+        //headers.put("Content-Type", "application/json");
 
         //Выполняем REST GET запрос с нашими параметрами
         // и сохраняем результат в переменную response.
-        HttpResponse response = HttpClientHelper.get(URL+endpoint,"page=2", headers);
+        HttpResponse response = HttpClientHelper.get(URL+endpoint,"page=2");
 
         //получаем статус код из ответа
         int statusCode = response.getStatusLine().getStatusCode();
