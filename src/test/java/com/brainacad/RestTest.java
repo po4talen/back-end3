@@ -16,12 +16,6 @@ public class RestTest{
     public void checkGetResponseStatusCode() throws IOException {
         String endpoint="/api/users";
 
-        //TODO: Избавится он хедеров в тесте добавив методы с хедерами по умолчанию в класс HttpClientHelper
-        //Создаём переменую headers типа Map
-        //Map<String, String> headers=new HashMap<>();
-        //Добавляем в headers наш заголовок
-        //headers.put("Content-Type", "application/json");
-
         //Выполняем REST GET запрос с нашими параметрами
         // и сохраняем результат в переменную response.
         HttpResponse response = HttpClientHelper.get(URL+endpoint,"page=2");
@@ -36,15 +30,9 @@ public class RestTest{
     public void checkGetResponseBodyNotNull() throws IOException {
         String endpoint="/api/users";
 
-        //TODO: Избавится он хедеров в тесте добавив методы с хедерами по умолчанию в класс HttpClientHelper
-        //Создаём переменую headers типа Map
-        Map<String, String> headers=new HashMap<>();
-        //Добавляем в headers наш заголовок
-        headers.put("Content-Type", "application/json");
-
-        //Выполняем REST GET запрос с нашими параметрами
+         //Выполняем REST GET запрос с нашими параметрами
         // и сохраняем результат в переменную response.
-        HttpResponse response = HttpClientHelper.get(URL+endpoint,"page=2", headers);
+        HttpResponse response = HttpClientHelper.get(URL+endpoint,"page=2");
 
         //Конвертируем входящий поток тела ответа в строку
         String body=HttpClientHelper.getBodyFromResponse(response);
@@ -56,18 +44,12 @@ public class RestTest{
     public void checkPostResponseStatusCode() throws IOException {
         String endpoint="/api/users";
 
-        //TODO: Избавится он хедеров в тесте добавив методы с хедерами по умолчанию в класс HttpClientHelper
-        //Создаём переменую headers типа Map
-        Map<String, String> headers=new HashMap<>();
-        //Добавляем в headers наш заголовок
-        headers.put("Content-Type", "application/json");
-
         //создаём тело запроса
         String requestBody="{\"name\": \"morpheus\",\"job\": \"leader\"}";
 
         //Выполняем REST POST запрос с нашими параметрами
         // и сохраняем результат в переменную response.
-        HttpResponse response = HttpClientHelper.post(URL+endpoint,requestBody, headers);
+        HttpResponse response = HttpClientHelper.post(URL+endpoint,requestBody);
 
         //получаем статус код из ответа
         int statusCode = response.getStatusLine().getStatusCode();
@@ -79,18 +61,12 @@ public class RestTest{
     public void checkPostResponseBodyNotNull() throws IOException {
         String endpoint="/api/users";
 
-        //TODO: Избавится он хедеров в тесте добавив методы с хедерами по умолчанию в класс HttpClientHelper
-        //Создаём переменую headers типа Map
-        Map<String, String> headers=new HashMap<>();
-        //Добавляем в headers наш заголовок
-        headers.put("Content-Type", "application/json");
-
         //создаём тело запроса
         String requestBody="{\"name\": \"morpheus\",\"job\": \"leader\"}";
 
         //Выполняем REST POST запрос с нашими параметрами
         // и сохраняем результат в переменную response.
-        HttpResponse response = HttpClientHelper.post(URL+endpoint,requestBody, headers);
+        HttpResponse response = HttpClientHelper.post(URL+endpoint,requestBody);
 
         //Конвертируем входящий поток тела ответа в строку
         String body=HttpClientHelper.getBodyFromResponse(response);
