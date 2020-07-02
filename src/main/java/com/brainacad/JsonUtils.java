@@ -1,4 +1,5 @@
 package com.brainacad;
+import com.jayway.jsonpath.DocumentContext;
 import com.jayway.jsonpath.JsonPath;
 
 import java.util.List;
@@ -14,7 +15,10 @@ public class JsonUtils {
     //TODO: Используя библиотеку com.jayway.jsonpath (Maven) напишите метод извлечения int из JSON по JSON Path:
 
     public static int intFromJSONByPath(String json, String jsonPath){
-        return JsonPath.read(json, jsonPath);
+        DocumentContext context = JsonPath.parse(json);
+        return JsonPath.parse(json).read(jsonPath);
+
+
     }
 
 
@@ -27,9 +31,14 @@ public class JsonUtils {
 
     //TODO: Используя библиотеку com.jayway.jsonpath (Maven) напишите метод извлечения списка (List) из JSON по JSON Path:
 
-//    public static List listFromJSONByPath(String json, String jsonPath){
+  public static List listFromJSONByPath(String json, String jsonPath){
+       DocumentContext jsonContext = JsonPath.parse(json);
+       return jsonContext.read(jsonPath);
+   }
 //        return JsonPath.read(json, jsonPath);
 //    }
+
+
 
 
 }

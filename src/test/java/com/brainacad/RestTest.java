@@ -93,9 +93,9 @@ public class RestTest{
         String requestBody="{\"name\": \"morpheus\",\"job\": \"zion resident\"}";
         HttpResponse response = HttpClientHelper.put(URL+endpoint,requestBody);
         String body=HttpClientHelper.getBodyFromResponse(response);
-        System.out.println(body);
-        String data = stringFromJSONByPath(body, "$.data[1].first_name");
-        System.out.println("First name = " + data);
+        //System.out.println(body);
+        String data = stringFromJSONByPath(body, "$.name");
+        //System.out.println("First name = " + data);
         Assert.assertEquals("First name should be Charles", "morpheus", data);
     }
 
