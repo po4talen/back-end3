@@ -7,13 +7,15 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.brainacad.JsonUtils.stringFromJSONByPath;
+
 
 public class RestTest{
 
     private static final String URL="https://reqres.in/";
 
-    @Test//GET метод
-    public void checkGetResponseStatusCode() throws IOException {
+    @Test//GET LIST USERS метод
+    public void checkGetResponseStatusCodeListUsers() throws IOException {
         String endpoint="/api/users";
 
         //Выполняем REST GET запрос с нашими параметрами
@@ -26,8 +28,8 @@ public class RestTest{
         Assert.assertEquals("Response status code should be 200", 200, statusCode);
     }
 
-    @Test//GET метод
-    public void checkGetResponseBodyNotNull() throws IOException {
+    @Test//GET LIST USERS метод
+    public void checkGetResponseBodyNotNullListUsers() throws IOException {
         String endpoint="/api/users";
 
          //Выполняем REST GET запрос с нашими параметрами
@@ -41,7 +43,7 @@ public class RestTest{
     }
 
     @Test//POST метод
-    public void checkPostResponseStatusCode() throws IOException {
+    public void checkPostResponseStatusCodeCreate() throws IOException {
         String endpoint="/api/users";
 
         //создаём тело запроса
@@ -58,7 +60,7 @@ public class RestTest{
     }
 
     @Test//POST метод
-    public void checkPostResponseBodyNotNull() throws IOException {
+    public void checkPostResponseBodyNotNullCreate() throws IOException {
         String endpoint="/api/users";
 
         //создаём тело запроса
@@ -76,5 +78,25 @@ public class RestTest{
 
     //TODO: напишите по тесткейсу на каждый вариант запроса на сайте https://reqres.in
     //TODO: в тескейсах проверьте Result Code и несколько параметров из JSON ответа (если он есть)
+    @Test //GET SINGLE USER NOT FOUND
+    public void checkGetResponseStatusCodeSingleUserNotFound() throws IOException {
+        String endpoint="/api/users/23";
+        HttpResponse response = HttpClientHelper.get(URL+endpoint,"");
+        int statusCode = response.getStatusLine().getStatusCode();
+        System.out.println("Response Code : " + statusCode);
+        Assert.assertEquals("Response status code should be 404", 404, statusCode);
+    }
+
+    @Test // PUT UPDATE
+    public void checkPutResponseBodyUpdate() throws IOException {
+        String endpoint="/api/users/2";
+        String requestBody="{\"name\": \"morpheus\",\"job\": \"zion resident\"}";
+        HttpResponse response = HttpClientHelper.put(URL+endpoint,requestBody);
+        String body=HttpClientHelper.getBodyFromResponse(response);
+        System.out.println(body);
+        String data = stringFromJSONByPath(body, "$.data[1].first_name");
+        System.out.println("First name = " + data);
+        Assert.assertEquals("First name should be Charles", "morpheus", data);
+    }
 
 }

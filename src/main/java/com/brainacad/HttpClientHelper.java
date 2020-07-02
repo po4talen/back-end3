@@ -19,7 +19,7 @@ public class HttpClientHelper {
 
     public static HttpResponse get(String endpointUrl, String parameters) throws IOException {
        //TODO: написать метод для GET запроса с хедерами по умолчанию
-        Map<String, String> headers = new HashMap<>();
+        Map<String,String> headers = new HashMap<>();
         headers.put("Content-Type", "application/json");
        return get(endpointUrl, parameters, headers);
     }

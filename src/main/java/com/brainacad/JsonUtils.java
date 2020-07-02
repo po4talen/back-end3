@@ -27,9 +27,9 @@ public class JsonUtils {
 
     //TODO: Используя библиотеку com.jayway.jsonpath (Maven) напишите метод извлечения списка (List) из JSON по JSON Path:
 
-    public static List listFromJSONByPath(String json, String jsonPath){
-        return JsonPath.read(json, jsonPath);
-    }
+//    public static List listFromJSONByPath(String json, String jsonPath){
+//        return JsonPath.read(json, jsonPath);
+//    }
 
 
 }
