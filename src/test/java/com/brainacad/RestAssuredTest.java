@@ -147,6 +147,7 @@ public class RestAssuredTest {
                 .statusCode(201)
                 .body("name", equalTo("morpheus"))
                 .body("job", equalTo("leader"));
+
     }
 
     @Test //PUT UPDATE
@@ -163,8 +164,10 @@ public class RestAssuredTest {
                 .log().body()
                 .statusCode(200)
                 .body("job", equalTo("zion"))
-                .body("$", hasKey("updatedAt"));
-
+                .body("$", hasKey("updatedAt"))
+                .extract()
+                .body()
+                .as(Nuser.class);
 
     }
 
