@@ -9,6 +9,7 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
 
 
+
 public class RestAssuredTest {
 /*     public class BodyToAllureTest {
          RequestSpecification requestSpec = new RequestSpecBuilder()
@@ -126,13 +127,20 @@ public class RestAssuredTest {
 
     @Test // POST CREATE
     public void PostCreate(){
+
+        Users user = Users.builder()
+                .name("morpheus")
+                .job("leader")
+                .build();
+
         given()
                 .spec(REQUEST_SPEC)
                 .pathParam("page", "users")
                 .pathParam("id", "")
                 .log().body()
                 .when()
-                .body("{\"name\": \"morpheus\", \"job\": \"leader\" }")
+                .body(user) //создание реквеста через lombok
+               // .body("{\"name\": \"morpheus\", \"job\": \"leader\" }")
                 .post()
                 .then()
                 .log().body()

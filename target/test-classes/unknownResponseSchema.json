@@ -1,77 +1,77 @@
 {
-  "type":"object",
-  "properties":{
-    "page":{
-      "type":"integer"
+  "type": "object",
+  "properties": {
+    "page": {
+      "type": "integer"
     },
-    "per_page":{
-      "type":"integer"
+    "per_page": {
+      "type": "integer"
     },
-    "total":{
-      "type":"integer"
+    "total": {
+      "type": "integer"
     },
-    "total_pages":{
-      "type":"integer"
+    "total_pages": {
+      "type": "integer"
     },
-    "data":{
-      "type":"array",
-      "items":
-        {
-          "type":"object",
-          "properties":{
-            "id":{
-              "type":"integer",
-              "enum":[
-                1,
-                2,
-
-                4,
-                5
-              ]
-            },
-            "name":{
-              "type":"string"
-            },
-            "year":{
-              "type":"integer"
-            },
-            "color":{
-              "type":"string"
-            },
-            "pantone_value":{
-              "type":"string"
-            }
+    "data": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "enum": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ]
           },
-          "required":[
-            "id",
-            "name",
-            "year",
-            "color",
-            "pantone_value"
-          ]
-        }
+          "name": {
+            "type": "string"
+          },
+          "year": {
+            "type": "integer"
+          },
+          "color": {
+            "type": "string"
+          },
+          "pantone_value": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "year",
+          "color",
+          "pantone_value"
+        ]
+      }
     },
-    "ad":{
-      "type":"object",
-      "properties":{
-        "company":{
-          "type":"string"
+    "ad": {
+      "type": "object",
+      "properties": {
+        "company": {
+          "type": "string"
         },
-        "url":{
-          "type":"string"
+        "url": {
+          "type": "string"
         },
-        "text":{
-          "type":"string"
+        "text": {
+          "type": "string"
         }
       },
-      "required":[
+      "required": [
         "company",
         "url",
         "text"
       ]
     }
   },
-  "required":[
+  "required": [
     "page",
     "per_page",
     "total",
