@@ -3,9 +3,8 @@ package com.brainacad;
 import org.apache.http.HttpResponse;
 import org.junit.Assert;
 import org.junit.Test;
+
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 import static com.brainacad.JsonUtils.stringFromJSONByPath;
 
