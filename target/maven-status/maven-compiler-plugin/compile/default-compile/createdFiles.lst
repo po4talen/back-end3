@@ -1,0 +1,7 @@
+com\brainacad\Nuser.class
+com\brainacad\ReqSpec.class
+com\brainacad\HttpClientHelper.class
+com\brainacad\JsonUtils.class
+com\brainacad\Users.class
+com\brainacad\Users$UsersBuilder.class
+com\brainacad\Nuser$NuserBuilder.class
