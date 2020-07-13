@@ -133,7 +133,8 @@ public class RestAssuredTest {
                 .job("leader")
                 .build();
 
-        given()
+
+        Nuser nuser = given()
                 .spec(REQUEST_SPEC)
                 .pathParam("page", "users")
                 .pathParam("id", "")
@@ -146,7 +147,8 @@ public class RestAssuredTest {
                 .log().body()
                 .statusCode(201)
                 .body("name", equalTo("morpheus"))
-                .body("job", equalTo("leader"));
+                .body("job", equalTo("leader"))
+                .extract().body().as(Nuser.class);
 
     }
 
