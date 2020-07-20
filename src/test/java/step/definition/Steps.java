@@ -1,6 +1,7 @@
 package step.definition;
 
 import io.cucumber.core.gherkin.Step;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -11,6 +12,7 @@ import org.junit.Test;
 
 import static com.brainacad.ReqSpec.REQUEST_SPEC;
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.CoreMatchers.equalTo;
 
 public class Steps {
 
@@ -62,12 +64,13 @@ public class Steps {
         response2.statusCode(code);
     }
 
-//    @Then ("I check name {login} and job {job}")
-//
-//    public void get_responce_body (String login, String job){
-//        response2.body();
-//    }
-//
+     @And("I check name login {string} and job {string}")
+    public void iCheckNameLoginAndJob(String login, String job) {
+        response2.body("name",equalTo("morpheus"));
+        response2.body("job", equalTo("leader"));
+    }
+
+
 
 
 //    @when ("^ I login as (User|admin)$")

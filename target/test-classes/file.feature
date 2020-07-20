@@ -10,6 +10,8 @@ Feature: My featuredescription
       Given I have server by url "https://reqres.in"
       When I send POST request on endpoint "/api/users"
       Then I get response status code2 201
+      And I check name login "morpheus" and job "leader"
+
 
 #      Then I check name morpheus and job leader
 
