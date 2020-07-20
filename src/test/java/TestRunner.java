@@ -1,13 +1,15 @@
-//
-//
-//import cucumber.api.CucumberOptions;
-//import cucumber.api.junit.Cucumber;
-//import org.junit.runner.RunWith;
-//
-//@RunWith(Cucumber.class)
-//@CucumberOptions
-//        (features = "src/test/resources",
-//         glue = "src.test.cucumberDef"
-////tags = "@myTag")
-//                public class TestRunner{
-//        }
+import io.cucumber.junit.Cucumber;
+import io.cucumber.junit.CucumberOptions;
+import org.junit.runner.RunWith;
+
+@RunWith(Cucumber.class)
+@CucumberOptions(
+        features = "src/test/resources",
+        glue = "stepDefinitions",
+        tags = "not @Defect",
+        plugin = {"io.qameta.allure.cucumber5jvm.AllureCucumber5Jvm", "pretty", "json:target/cucumber-report/report.json"}
+)
+
+
+public class TestRunner {
+}
